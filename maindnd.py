@@ -21,6 +21,10 @@ def typing_text(text):
         time.sleep(0.04) 
     print()
 
+def start_main_menu():
+    print("[1] New Game\n"
+        "[2] Load Game")
+    
 def character_creator():
     print("Create your character:")
     name = input("Choose your character name >> ")
@@ -99,6 +103,7 @@ def character_creator():
 
     return name, species, player_class
 
+    
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 name, species, player_class = character_creator()
@@ -113,7 +118,10 @@ print("=============================="
 
 if player_class in class_stat_lookup:
     class_stat_lookup[player_class].display_stats()
+
 else:
     print("An error occurred.")
 
 typing_text("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

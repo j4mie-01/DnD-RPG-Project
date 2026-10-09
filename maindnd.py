@@ -22,11 +22,31 @@ def typing_text(text):
     print()
 
 def start_main_menu():
-    print("[1] New Game\n"
-        "[2] Load Game")
+    print("====Main Menu====\n"
+        "[1] New Game\n"
+        "[2] Load Game\n"
+        "[3] Quit Program\n"
+        "=================\n")
     
+    while True:
+        start_game = int(input(">> "))
+        if start_game == 1:
+            typing_text("Starting new game...\n")
+            # if save file found make player aware that if they start a new game, it will overwrite the previous one if it is saved (only 1 save slot for now)
+            break
+        elif start_game == 2:
+            typing_text("Loading previous game... (1 save slot)") # add to when i have a save file
+            # when i add a save game slot 
+            typing_text("No game was found.")
+            start_game = False
+        elif start_game == 3:
+            typing_text("Exiting program...")
+            exit()
+        else:
+            typing_text("Invalid input. Try again.")
+
 def character_creator():
-    print("Create your character:")
+    print("\nCreate your character:")
     name = input("Choose your character name >> ")
     
     while True:
@@ -105,7 +125,10 @@ def character_creator():
 
     
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Main program
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+start_main_menu()
 name, species, player_class = character_creator()
 
 print("=============================="
@@ -118,10 +141,10 @@ print("=============================="
 
 if player_class in class_stat_lookup:
     class_stat_lookup[player_class].display_stats()
-
 else:
     print("An error occurred.")
 
+player_character = class_stat_lookup[player_class]
 typing_text("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

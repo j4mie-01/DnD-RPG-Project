@@ -1,6 +1,7 @@
 class CharacterStats:
 
     def __init__(self, str, dex, con, int, wis, cha):
+
         self.str = str # strength
         self.dex = dex # dexterity
         self.con = con # constitution

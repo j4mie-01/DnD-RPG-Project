@@ -22,11 +22,11 @@ def typing_text(text):
     print()
 
 def start_main_menu():
-    print("====Main Menu====\n"
+    print("====DnD Style Text Game====\n"
         "[1] New Game\n"
         "[2] Load Game\n"
         "[3] Quit Program\n"
-        "=================\n")
+        "===========================\n")
     
     while True:
         start_game = int(input(">> "))
@@ -44,6 +44,15 @@ def start_main_menu():
             exit()
         else:
             typing_text("Invalid input. Try again.")
+
+def main_menu():
+        print("=========Main Menu=========\n"
+        "[1] View character\n"
+        "[2] View stats\n"
+        "[3] View inventory\n"
+        "[4] Explore world"
+        "[5] Save game"
+        "===========================\n")
 
 def character_creator():
     print("\nCreate your character:")
@@ -123,28 +132,30 @@ def character_creator():
 
     return name, species, player_class
 
-    
+def display_created_character():
+    print("=============================="
+        f"\nCharacter successfully created:\n"
+        f"¦Name: {name}\n"
+        f"¦Species: {species}\n"
+        f"¦Class: {player_class}\n"
+        "=============================="
+    )
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Main program
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 start_main_menu()
-name, species, player_class = character_creator()
 
-print("=============================="
-    f"\nCharacter successfully created:\n"
-    f"¦Name: {name}\n"
-    f"¦Species: {species}\n"
-    f"¦Class: {player_class}\n"
-    "=============================="
-)
+name, species, player_class = character_creator()
+display_created_character()
 
 if player_class in class_stat_lookup:
     class_stat_lookup[player_class].display_stats()
 else:
     print("An error occurred.")
 
-player_character = class_stat_lookup[player_class]
 typing_text("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
+typing_text("Interact with characters and find loot along the way using charm, deception, or intimidation to get what you want.")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

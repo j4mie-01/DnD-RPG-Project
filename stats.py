@@ -19,8 +19,8 @@ class CharacterStats:
         f"¦Wisdom: {self.wis}\n"
         f"¦Charisma: {self.cha}\n"
         "=================\n"
-        )
-         
+        )        
+
 
 barbarian_stats = CharacterStats(16, 14, 14, 8, 8, 10)
 bard_stats = CharacterStats(8, 14, 11, 12, 10, 15)

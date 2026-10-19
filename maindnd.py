@@ -1,8 +1,7 @@
 import time
-
+import stats
 # stats only depend on the class, not the species as well (just cosmetic, although will have different dialogue in-game)
 # 20 is the max stat lvl, 1 is lowest, all stats add to 70 for each class
-import stats
 
 class_stat_lookup = {
     "Barbarian": stats.barbarian_stats,
@@ -15,7 +14,7 @@ class_stat_lookup = {
     "Wizard": stats.wizard_stats
 }
 
-def typing_text(text):
+def type(text):
     for char in text:
         print(char, end='', flush=True)
         time.sleep(0.04) 
@@ -31,29 +30,46 @@ def start_main_menu():
     while True:
         start_game = int(input(">> "))
         if start_game == 1:
-            typing_text("Starting new game...\n")
+            type("Starting new game...\n")
             # if save file found make player aware that if they start a new game, it will overwrite the previous one if it is saved (only 1 save slot for now)
             break
         elif start_game == 2:
-            typing_text("Loading previous game... (1 save slot)") # add to when i have a save file
+            type("Loading previous game... (1 save slot)") # add to when i have a save file
             # when i add a save game slot 
-            typing_text("No game was found.")
+            type("No game was found.")
             start_game = False
         elif start_game == 3:
-            typing_text("Exiting program...")
+            type("Exiting program...")
             exit()
         else:
-            typing_text("Invalid input. Try again.")
+            type("Invalid input. Try again.")
 
 def main_menu():
-        print("=========Main Menu=========\n"
-        "[1] View character\n"
-        "[2] View stats\n"
-        "[3] View inventory\n"
-        "[4] Explore world"
-        "[5] Save game"
-        "===========================\n")
+    print("=========Main Menu=========\n"
+    "[1] View character\n"
+    "[2] View stats\n"
+    "[3] View inventory\n"
+    "[4] Explore world"
+    "[5] Save game"
+    "===========================\n")
 
+    while True:
+        menu_choice = int(input(">>"))
+        if menu_choice == 1:
+            display_created_character()
+        elif menu_choice == 2:
+            class_stat_lookup[player_class].display_stats()
+
+        elif menu_choice == 3:
+            # view inventory
+            pass
+        elif menu_choice == 4:
+            # explore world
+            pass
+        elif menu_choice == 5:
+            # save game
+            pass
+          
 def character_creator():
     print("\nCreate your character:")
     name = input("Choose your character name >> ")
@@ -141,6 +157,7 @@ def display_created_character():
         "=============================="
     )
 
+
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Main program
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -151,11 +168,12 @@ name, species, player_class = character_creator()
 display_created_character()
 
 if player_class in class_stat_lookup:
-    class_stat_lookup[player_class].display_stats()
+        class_stat_lookup[player_class].display_stats()
 else:
     print("An error occurred.")
+    exit()
 
-typing_text("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
-typing_text("Interact with characters and find loot along the way using charm, deception, or intimidation to get what you want.")
+type("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
+type("Interact with characters and find loot along the way using charm, deception, or intimidation to get what you want.")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

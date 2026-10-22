@@ -44,31 +44,31 @@ def start_main_menu():
         else:
             type("Invalid input. Try again.")
 
-def main_menu():
-    print("=========Main Menu=========\n"
-    "[1] View character\n"
-    "[2] View stats\n"
-    "[3] View inventory\n"
-    "[4] Explore world"
-    "[5] Save game"
-    "===========================\n")
+#def main_menu():
+    #print("=========Main Menu=========\n"
+    #"[1] View character\n"
+    #"[2] View stats\n"
+    #"[3] View inventory\n"
+    #"[4] Explore world"
+    #"[5] Save game"
+    #"===========================\n")
 
-    while True:
-        menu_choice = int(input(">>"))
-        if menu_choice == 1:
-            display_created_character()
-        elif menu_choice == 2:
-            class_stat_lookup[player_class].display_stats()
+    #while True:
+        #menu_choice = int(input(">>"))
+        #if menu_choice == 1:
+            #display_created_character()
+        #elif menu_choice == 2:
+            #class_stat_lookup[player_class].display_stats()
 
-        elif menu_choice == 3:
+        #elif menu_choice == 3:
             # view inventory
-            pass
-        elif menu_choice == 4:
+            #pass
+        #elif menu_choice == 4:
             # explore world
-            pass
-        elif menu_choice == 5:
+            #pass
+        #elif menu_choice == 5:
             # save game
-            pass
+            #pass
           
 def character_creator():
     print("\nCreate your character:")
@@ -163,7 +163,6 @@ def display_created_character():
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 start_main_menu()
-
 name, species, player_class = character_creator()
 display_created_character()
 
@@ -175,5 +174,10 @@ else:
 
 type("Greetings fellow adventurer, you have been chosen to embark on a treacherous journey.\nYou must explore this realm, battling any foe or creature that gets in your way.")
 type("Interact with characters and find loot along the way using charm, deception, or intimidation to get what you want.")
+
+#world vvv
+time.sleep(2)
+type("Your journey starts in a village.")
+type("[1] Go to merchant shop")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
